@@ -1,0 +1,23 @@
+:root {
+  --border-radius: 0.3rem;
+  --hover-opacity: 0.8;
+  --bg-color: black;
+}
+
+.btn {
+  border: 1px solid rgba(var(--bg-color), 1);
+  border-radius: var(--border-radius);
+  background-color: var(--bg-color);
+  padding: 5px 10px;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  opacity: var(--hover-opacity);
+}
+
+.btn:active,
+.btn:focus {
+  outline: 1px solid #eeeeee;
+  outline-offset: 0.1rem;
+}
