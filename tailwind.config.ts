@@ -1,17 +1,23 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+  darkMode: "selector", // Enable dark mode by adding 'class'
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        light: {
+          primary: "#ffffff",
+          secondary: "#f8f9fa",
+          accent: "#007bff",
+          text: "#212529",
+        },
+        dark: {
+          primary: "#212529",
+          secondary: "#343a40",
+          accent: "#0d6efd",
+          text: "#f8f9fa",
+        },
       },
     },
   },

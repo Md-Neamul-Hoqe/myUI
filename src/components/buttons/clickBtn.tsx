@@ -1,19 +1,31 @@
 "use client";
+
+/* text to capitalize */
+import Capitalize from "@/utils/textTransform/Capitalize";
+
+/* types of the props */
 import { ClickBtnProps } from "@/utils/types/buttons/clickBtn";
-import Capitalize from "@/utils/textTransform/CamelCase";
+
+/* all customized css styles */
 import "./clickBtn.css";
 
-function ClickBtn({
-  handleClick,
-  viewText,
+/**
+ * General button component for client side use only
+ */
+export default function ClickBtn({
+  handleClick = () => null,
+  handleHover,
+  viewText = "BUTTON",
+  classNames = "",
   styles,
-  customBtnClass,
 }: ClickBtnProps) {
   return (
-    <button onClick={handleClick} className={`${styles} ${customBtnClass}`}>
+    <button
+      onMouseOver={handleHover}
+      onClick={handleClick}
+      className={classNames}
+      style={styles}>
       {Capitalize(viewText)}
     </button>
   );
 }
-
-export default ClickBtn;

@@ -3,12 +3,16 @@
  * @param item the name of localStorage item
  * @returns items
  */
-export const getStorage = (item: string) => {
-  /* get the items from local storage */
-  const storeString = localStorage?.getItem(item)?.toString();
+export const getStorage = (item: string): string[] | object | string => {
+  /* return if localStorage is not supported */
+  if (!localStorage) return "";
+
+  const storeString = localStorage?.getItem(item);
+
+  if (!storeString) return "";
 
   /* transform string to object or array */
-  const storeLS = storeString && JSON.parse(storeString);
+  const storeLS = isJSON(storeString);
 
   /* return the store with all items as object or array */
   return storeLS;
@@ -19,10 +23,26 @@ export const getStorage = (item: string) => {
  * @param item the name of localStorage item
  * @param value the array or object
  */
-export const setStorage = (item: string, value: string[] | object) => {
+export const setStorage = (
+  item: string,
+  value: string[] | object | string
+): void => {
+  if (!localStorage) return;
+
+  /* if the value is a string */
+  if (typeof value === "string") return localStorage?.setItem(item, value);
+
   /* transform object or array to string */
   const storageString = JSON.stringify(value);
 
   /* set items to LS */
-  localStorage.setItem(item, storageString);
+  return localStorage.setItem(item, storageString);
 };
+
+export function isJSON(str: string) {
+  try {
+    return JSON.parse(str);
+  } catch (e) {
+    return str;
+  }
+}

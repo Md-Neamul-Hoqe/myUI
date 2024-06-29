@@ -2,12 +2,12 @@
   --border-radius: 0.3rem;
   --hover-opacity: 0.8;
   --bg-color: black;
+  --text-color: white;
 }
 
 .btn {
   border: 1px solid rgba(var(--bg-color), 1);
   border-radius: var(--border-radius);
-  background-color: var(--bg-color);
   padding: 5px 10px;
   font-size: 1rem;
 }
@@ -20,4 +20,18 @@
 .btn:focus {
   outline: 1px solid #eeeeee;
   outline-offset: 0.1rem;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: black;
+    --text-color: white;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: rgb(106, 116, 255);
+    --text-color: black;
+  }
 }
