@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 /**
  * - Navbar
  * - Authentication using Redux-Toolkit
+ * - Theme toggle
  * - Hero section [Full Screen MUI]
  * - Slider (Carousel, testimonials)
  * - Image Gallery
@@ -27,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme={"dark"}>
+    <html lang="en">
       <body className={inter.className}>{children}</body>
     </html>
   );

@@ -1,4 +1,5 @@
 import { getStorage, setStorage } from "../cartLocal/localStorage";
+import toggleClass from "./toggleClass";
 
 export default function toggleTheme() {
   if (window.document) {
@@ -12,14 +13,16 @@ export default function toggleTheme() {
       console.log("changed to light");
       setStorage("theme", "light");
       // HTMLElement?.setAttribute("data-theme", "light");
-      HTMLElement?.classList.remove("dark");
-      HTMLElement?.classList.add("light");
+      // HTMLElement?.classList.remove("dark");
+      // HTMLElement?.classList.add("light");
+      toggleClass("light", "dark");
     } else {
       setStorage("theme", "dark");
       console.log("changed to dark");
       // HTMLElement?.setAttribute("data-theme", "dark");
-      HTMLElement?.classList.add("dark");
-      HTMLElement?.classList.remove("light");
+      // HTMLElement?.classList.add("dark");
+      // HTMLElement?.classList.remove("light");
+      toggleClass("dark", "light");
     }
   }
 }
